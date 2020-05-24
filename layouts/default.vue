@@ -1,10 +1,22 @@
 <template>
   <div>
+		<Header/>
     <nuxt />
+		<Footer/>
   </div>
 </template>
 
-<style>
+<script>
+import Header from '../components/header'
+import Footer from '../components/footer'
+export default {
+	components:{
+		Header,
+		Footer
+	}
+}
+</script>
+<style lang="scss">
 html {
   font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -23,33 +35,22 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
-
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
-}
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
-}
-
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
+body{
+  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  display: block;
+  font-weight: 300;
+  font-size: 100px;
   color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
+  letter-spacing: 1px;
+	background-color: rgba(239, 238, 235, 1);
 }
-
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+.bg{
+	background-color: rgba(239, 238, 235, 1);
+	min-height: 100vh;
+}
+img{
+	width:100%;
+	object-fit: contain;
 }
 </style>
