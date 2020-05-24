@@ -32,6 +32,8 @@ Now include your file in the page component like this
 
 
 And With that you're good to go!  
+
+
 The Module also offers things features **Full-text searching** , **Table of contents generation** and much more. Check out the [docs](https://content.nuxtjs.org/) for more information.
 
 
