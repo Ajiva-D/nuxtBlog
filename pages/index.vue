@@ -1,72 +1,49 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        nuxtBlog
-      </h1>
-      <h2 class="subtitle">
-        Nuxt App to test content module.
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+  <div class="bg py-4">
+    <b-container>
+      <h1>{{ blog.title }}</h1>
+      <nuxt-content :document="blog" />
+    </b-container>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-
 export default {
-  components: {
-    Logo
+  async asyncData({ $content }) {
+    const blog = await $content('articles/index').fetch()
+
+    return {
+      blog
+    }
   }
 }
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+<style scoped lang="scss">
+.nuxt-content {
+	color:rgba(19, 18, 13, 1);
+  em {
+    font-size: 14px;
+  }
+  p {
+    font-size: 20px;
+  }
+  img {
+    max-width: 900px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 6px;
+  }
+	li{
+		font-size:13px;
+	}
+	.code-img{
+		width:100%;
+		height:100%;
+		object-fit: contain;
+	}
+	a{
+		color:rgba(141, 20, 14, 1);
+	}
 }
 </style>
